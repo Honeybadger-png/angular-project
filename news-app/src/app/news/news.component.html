@@ -1,0 +1,20 @@
+<div class="row p-2">
+    <div class="col-md-5">
+        <div class=""  *ngFor="let single of news;index as i">
+            @if(i % 2 === 0 ){
+                <app-news-list [singleNews] = "single"> </app-news-list>
+            }
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="" *ngFor="let single of news;index as i" >
+            @if(i%2 !== 0){
+                <app-news-list [singleNews] = "single"> </app-news-list>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+
