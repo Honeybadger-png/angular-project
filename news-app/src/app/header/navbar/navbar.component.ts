@@ -1,4 +1,5 @@
 import { Component,EventEmitter, Output } from '@angular/core';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,9 @@ import { Component,EventEmitter, Output } from '@angular/core';
 export class NavbarComponent {
   isDropDownActive = false;
   selectedCategory :any;
-  @Output() featureSelected = new EventEmitter<string>();
+  constructor(private navbarService:NavbarService){
+
+  }
   categories = [
     {name:'Health', value:'Health'},
     {name:'Sport', value:'Sport'},
@@ -16,7 +19,8 @@ export class NavbarComponent {
     {name:'Politic', value:'Politic'},
   ]
   
-  onSelect(feature:string){
-    this.featureSelected.emit(feature);
+  onSelect(feature:any){
+    feature.toString();
+    this.navbarService.selectedFeature.emit(feature);
   }
 }

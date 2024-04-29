@@ -7,21 +7,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" (click)="onSelect('home')">Home</a>
+          <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">
+            <a class="nav-link" aria-current="page" routerLink="/" (click)="onSelect('Home')">Home</a>
           </li>
           <div class="dropdown-btn" (click)="isDropDownActive = !isDropDownActive">
             {{selectedCategory?.name || 'Categories'}}
             <div class="custom-dropdown" [ngClass]="{active: isDropDownActive}">
               <ul>
-                <li *ngFor="let category of categories"><a href="#">{{category.name}}</a></li>
+                <li *ngFor="let category of categories" routerLinkActive="active"><a routerLink="category/{category.name}"  (click)="onSelect(category.name)">{{category.name}}</a></li>
+                <li ><a routerLink='categories' (click)="onSelect('categories')">Categories</a></li>
               </ul>
             </div>
           </div>
         </ul>
         <ul class="d-flex navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#" (click)="onSelect('about-us')">About Us</a>
+            <a class="nav-link" routerLink="/about-us" (click)="onSelect('About Us')">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/fallout-news',5]" [queryParams]="{page:'fallout'}" (click)="onSelect('Fallout News')">Fallout News</a>
           </li>
         </ul>
       </div>

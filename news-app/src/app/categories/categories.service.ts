@@ -7,5 +7,15 @@ import { Injectable } from "@angular/core";
 
 
 export class CategoriesService{
+    private categories:Array<string> = [
+        'Health',
+        'Politic',
+        'Business',
+        'Sport'
+    ]
+
+    getCategories(){
+        this.categories.slice();
+    }
     
 }

@@ -1,4 +1,4 @@
 export class Filter{
-    type:string;
+    category:string;
     filterValues:Array<string>;
 }

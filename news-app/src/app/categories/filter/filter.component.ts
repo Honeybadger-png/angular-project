@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FilterService } from './filter.service';
 
 @Component({
   selector: 'app-filter',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class FilterComponent {
 
+  selectedFilter = {category:'health',filterValues: ['deneme1','deneme2']};
+  constructor(private filterService: FilterService){
+
+  }
+  ngOnInit(){
+  };
+
+  onSelected(){
+    this.filterService.filterSelected.emit(this.selectedFilter);
+  }
 }
